@@ -21,7 +21,8 @@ export class DashboardComponent {
      this.studentService.getStudent(data).subscribe((item)=>{
        this.studentData=item;
      })
-     this.studentRoom=this.studentData.room;
+    // 
+    return this.studentData.room;
     // return "hello"
   }
 }

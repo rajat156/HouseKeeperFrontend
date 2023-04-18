@@ -9,7 +9,7 @@ export class ProfileComponent implements OnInit{
 
   studentData:any;
   constructor(private studentService:RegStuServiceService){
-  this.studentService.getStudent(190783).subscribe((item)=>{
+  this.studentService.getStudent(983733).subscribe((item)=>{
     this.studentData=item;
   });
   }

@@ -6,6 +6,7 @@ import {faAddressBook} from '@fortawesome/free-regular-svg-icons';
 import {faRunning} from '@fortawesome/free-solid-svg-icons';
 import {faChartBar} from '@fortawesome/free-regular-svg-icons';
 import {faChartPie} from '@fortawesome/free-solid-svg-icons';
+import {CleanRequestService} from '../service/clean-request.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -13,6 +14,7 @@ import {faChartPie} from '@fortawesome/free-solid-svg-icons';
 })
 export class NavbarComponent {
 
+  AllCleanRequest:any;
   AllotIcon:any=faTelegram;
   ComplaintsIcon:any=faCreditCardAlt;
   StudentIcon:any=faUser;
@@ -20,4 +22,10 @@ export class NavbarComponent {
   HousekeeperIcon:any=faAddressBook;
   CleanRequestIcon:any=faChartBar;
   ComplaintsDivIcon:any=faChartPie;
+
+  constructor(private cleanService:CleanRequestService){
+    this.cleanService.getAllCount().subscribe((item)=>{
+      this.AllCleanRequest=item;
+    })
+  }
 }

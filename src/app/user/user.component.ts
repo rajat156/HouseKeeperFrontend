@@ -23,7 +23,7 @@ export class UserComponent implements OnInit {
   ComplaintsDivIcon:any=faChartPie;
   complaintCount:any;
   constructor(private cleanService:CleanRequestService){
-    this.cleanService.countRequest(190783).subscribe((item)=>{
+    this.cleanService.countRequest(983733).subscribe((item)=>{
       this.complaintCount=item;
     })
   }

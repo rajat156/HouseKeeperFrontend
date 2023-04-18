@@ -22,4 +22,8 @@ export class CleanRequestService {
   getAllClient(){
     return this.http.get('http://localhost:8087/getAllCleanRequest');
   }
+
+  getAllCount(){
+    return this.http.get('http://localhost:8087/getAllCleanRequestCount')
+  }
 }
