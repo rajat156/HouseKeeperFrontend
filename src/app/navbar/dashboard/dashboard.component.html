@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<br>
+<div style="margin-left:200px;" class="scrollspy-example bg-body-tertiary p-3 rounded-2">
+ <label><strong>Housekeeping </strong></label>   
+ <table  class="table customTable">
+    <thead class="text-muted">
+      <tr>
+        <th scope="col">HOUSEKEEPER</th>
+        <th scope="col">ROOM</th>
+        <th scope="col">DATE</th>
+        <th scope="col">TIME REQUESTED</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of AllClientRequestData">
+        <th scope="row" *ngIf="data.req_status===false">
+          <button class="btn btn-primary" style="width:49px; font-size: 10px;">Allot</button>
+        </th>
+        <td> {{studentNameByRollnumber(data.rollnumber)}} {{studentRoom}} </td>
+        <td> {{data.date}} </td>
+        <td> {{data.cleanTime}} </td>
+      </tr>
+     
+    </tbody>
+  </table>
+
+</div>

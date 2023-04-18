@@ -1,0 +1,22 @@
+<app-user></app-user>
+<br>
+<div style="margin-left:200px;" class="scrollspy-example bg-body-tertiary p-3 rounded-2">
+ <label><strong>Housekeeping </strong></label>   
+ <table  class="table customTable">
+    <thead class="text-muted">
+      <tr>
+        <th scope="col">HOUSEKEEPER</th>
+        <th scope="col">DATE</th>
+        <th scope="col">TIME REQUESTED</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of cleanRequestData">
+        <th scope="row"> {{data.worker_id}} </th>
+        <td> {{data.date}} </td>
+        <td> {{data.cleanTime}} </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

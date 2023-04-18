@@ -1,0 +1,23 @@
+<app-user></app-user>
+<div style="margin-left:16%;">
+
+    <label class="text-muted ms-5 mt-3"><strong>Send Feedback</strong></label>
+    <br><br>
+
+    <form class="row g-3" #form="ngForm" (ngSubmit)="submitFeedback(form.value)">
+        <div class="col-md-2 ms-5">
+          <label for="inputEmail4" class="form-label text-muted">Request Id</label>
+          <select class="form-select" name="request_id" ngModel> 
+            <option value="1">Shubham</option>
+          </select>
+        </div>
+        <input type="hidden" name="rollnumber" ngModel value="{{rollnumber}}">
+        <div class="col-10 ms-5">
+            <label for="inputEmail4" class="form-label text-muted">Feedback</label>
+            <input type="text" name="feedback" class="form-control" ngModel id="inputEmail4">
+          </div>
+          <div class="col-8 ms-5">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+    </form>
+</div>

@@ -1,0 +1,63 @@
+/* Style for the side navbar */
+.sidenav {
+    height: 100%;
+    width: 15.8%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f1f1f1;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Style for the links inside the side navbar */
+.sidenav button {
+    padding: 6px 8px 6px 0px;
+    text-decoration: none;
+    font-size: 12px;
+    color: #1c1a1a;
+    display: block;
+    border: none;
+    width: 207px;
+}
+
+/* Style for the active menu item */
+.sidenav button.active {
+    background-color: #5e5bec;
+    color: #fff;
+}
+/* Style for the hover effect */
+.sidenav button:hover {
+    background-color:#8a88f8;
+    color: #fff;
+}
+/* fa-icon{
+    color: #5e5bec; 
+} */
+/* fa-icon.active{
+    color: #fff;
+} */
+.dashboardImage{
+    width: 100%;
+    height: 240px;
+    opacity: 0.8;
+}
+.cleanRequestDiv{
+    position: absolute;
+    top: 19%;
+    left: 23%;
+    border-radius: 4px;
+    background-color: white;
+    width: 241px;
+    height: 80px;
+}
+.complaintsDiv{
+    position: absolute;
+    top: 19%;
+    left: 55%;
+    border-radius: 4px;
+    background-color: white;
+    width: 241px;
+    height: 80px;
+}
