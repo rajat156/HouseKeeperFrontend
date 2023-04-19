@@ -18,6 +18,7 @@ const routes: Routes = [
   { path:'admin/home', component:DashboardComponent },
   { path:'',redirectTo:"login",pathMatch:"full" },
   {path:'admin/allot', component:AllotComponent},
+  {path:'admin/allot/:id',component:AllotComponent},
   {path:'admin/registerStudent', component:RegisterstudentComponent},
   {path:'admin/registerHousekeeper',component:RegisterHousekeeperComponent},
   {path:'user/home',component:UserdashboardComponent},

@@ -15,14 +15,4 @@ export class DashboardComponent {
     })
   }
 
-  studentData:any;
-  studentRoom:any;
-  studentNameByRollnumber(data:any){
-     this.studentService.getStudent(data).subscribe((item)=>{
-       this.studentData=item;
-     })
-    // 
-    return this.studentData.room;
-    // return "hello"
-  }
 }

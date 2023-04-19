@@ -4,14 +4,14 @@
 
     <label class="text-muted ms-5 mt-3"><strong>Register Student</strong></label>
     <br><br>
-    <form class="row g-3">
+    <form class="row g-3" #form="ngForm" (ngSubmit)="registerHousekeeper(form.value)">
         <div class="col-md-2 ms-5">
           <label for="inputRoll" class="form-label text-muted">Name</label>
-          <input type="email" class="form-control" id="inputRoll" placeholder="Housekeeper Name">
+          <input type="text" ngModel class="form-control" id="inputRoll" name="name" placeholder="Housekeeper Name">
         </div>
         <div class="col-md-2 ms-5">
             <label for="inputRoom" class="form-label text-muted">Floor</label>
-            <input type="text" class="form-control" id="inputRoom" placeholder="Enter numeric value">
+            <input type="number" ngModel name="floor" class="form-control" id="inputRoom" placeholder="Enter numeric value">
           </div>
           <div class="col-12 ms-5">
             <button class="btn btn-primary">Register</button>
