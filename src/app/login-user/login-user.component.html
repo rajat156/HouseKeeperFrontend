@@ -1,12 +1,12 @@
 <div class="">
     <img class="imageDiv img-fluid" [src]="adminLoginImage">
     <div class="loginDiv">
-       <div class="text-center text-white"><h2>ADMIN LOGIN</h2> </div>
+       <div class="text-center text-white"><h2>USER LOGIN</h2> </div>
        <br>
        <div class="formDiv">
-        <form #form="ngForm" (ngSubmit)="checkAdmin(form.value)">
-            <label for="EmailInput" class="text-white">Email</label>
-            <input  type="email" ngModel id="EmailInput" name="username" class="form-control" required/>
+        <form #form="ngForm" (ngSubmit)="checkUser(form.value)">
+            <label for="EmailInput" class="text-white">Roll Number</label>
+            <input  type="email" ngModel id="EmailInput" name="rollnumber" class="form-control" required/>
             <br>
             <label for="PasswordInput" class="text-white">Password</label>
             <input  type="password" ngModel name="password" id="PasswordInput" class="form-control" required/>

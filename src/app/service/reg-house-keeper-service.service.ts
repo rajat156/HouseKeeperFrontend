@@ -8,11 +8,11 @@ export class RegHouseKeeperServiceService {
   constructor(private http:HttpClient) { }
 
   url:string='http://localhost:8087/';
-  registerHousekeeper(data:any){
-   return this.http.post(this.url+'registerWorker',data)
+  registerHousekeeper(data:any,hostel:any){
+   return this.http.post(this.url+'registerWorker/'+hostel,data)
   }
 
-  getHouseKeeperByFloor(data:any){
-    return this.http.get(this.url+'getHouseKeeperByFloor/'+data);
+  getHouseKeeperByFloor(data:any,hostel:any){
+    return this.http.get(this.url+'getHouseKeeperByFloor/'+data+'/'+hostel);
   }
 }

@@ -11,20 +11,23 @@ import { UserdashboardComponent } from './user/userdashboard/userdashboard.compo
 import { RequestComponent } from './user/request/request.component';
 import { ComplaintsComponent } from './user/complaints/complaints.component';
 import { ProfileComponent } from './user/profile/profile.component';
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+import { LoginUserComponent } from './login-user/login-user.component';
+import { FeedbackComponent } from './navbar/feedback/feedback.component';
 
 const routes: Routes = [
-  {path:'login',component:LoginComponent},
+  {path:'Adminlogin',component:LoginComponent},
   { path:'admin/home', component:DashboardComponent },
-  { path:'',redirectTo:"login",pathMatch:"full" },
-  {path:'admin/allot', component:AllotComponent},
-  {path:'admin/allot/:id',component:AllotComponent},
-  {path:'admin/registerStudent', component:RegisterstudentComponent},
-  {path:'admin/registerHousekeeper',component:RegisterHousekeeperComponent},
+  { path:'',redirectTo:"Adminlogin",pathMatch:"full" },
+  {path:'admin/allot/:id/:hostel',component:AllotComponent},
+  {path:'admin/registerStudent/:id', component:RegisterstudentComponent},
+  {path:'admin/registerHousekeeper/:id',component:RegisterHousekeeperComponent},
   {path:'user/home',component:UserdashboardComponent},
   {path:'user/request',component:RequestComponent},
-  {path:'user/complaints',component:ComplaintsComponent},
-  {path:'user/profile',component:ProfileComponent}
+  {path:'user/complaints/:id',component:ComplaintsComponent},
+  {path:'user/profile',component:ProfileComponent},
+  {path:'Userlogin',component:LoginUserComponent},
+  {path:'admin/feedback/:id',component:FeedbackComponent}
 ];
 
 @NgModule({

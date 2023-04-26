@@ -8,13 +8,23 @@
         <th scope="col">HOUSEKEEPER</th>
         <th scope="col">DATE</th>
         <th scope="col">TIME REQUESTED</th>
+        <th scope="col">FEEDBACK</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let data of cleanRequestData">
-        <th scope="row"> {{data.worker_id}} </th>
+        <td scope="row" style="font-size: 10px;" *ngIf="data.req_status===true"> {{data.worker.name}} </td>
+        <td *ngIf="data.req_status===false" style="font-size: 10px; color: red;">Not Allot</td>
         <td> {{data.date}} </td>
         <td> {{data.cleanTime}} </td>
+        <td *ngIf="data.feedback_status===false && data.req_status===true">
+          <button routerLink="/user/complaints/{{data.request_id}}"
+           class="btn btn-primary" 
+           style="width:60px; font-size: 10px;">
+           Feedback
+          </button> 
+           </td>
+           <td *ngIf="data.feedback_status===true" style="font-size: 10px; color: skyblue;">Feedback send</td>
       </tr>
     </tbody>
   </table>

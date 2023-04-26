@@ -7,8 +7,8 @@ export class RegStuServiceService {
 
   constructor(private http:HttpClient) { }
 
-  registerStudent(data:any){
-    return this.http.post('http://localhost:8087/saveStudent',data);
+  registerStudent(data:any,hostel:any){
+    return this.http.post('http://localhost:8087/saveStudent/'+hostel,data);
   }
 
   getStudent(data:any){

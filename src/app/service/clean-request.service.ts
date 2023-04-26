@@ -20,15 +20,19 @@ export class CleanRequestService {
     return this.http.get(this.url+'getCleanRequestByRollnumber/'+rollno)
   }
 
-  getAllClient(){
-    return this.http.get(this.url+'getAllCleanRequest');
+  getAllClient(data:any){
+    return this.http.get(this.url+'getAllCleanRequestByHostel/'+data);
   }
 
-  getAllCount(){
-    return this.http.get(this.url+'getAllCleanRequestCount')
+  getAllCount(data:any){
+    return this.http.get(this.url+'getAllCleanRequestCountByHostel/'+data)
   }
 
   getRequestById(data:any){
     return this.http.get(this.url+'getRequestById/'+data);
+  }
+
+  allotHouseKeeper(data:any,item:any){
+    return this.http.get(this.url+'allotHouseKeeper/'+data+'/'+item)
   }
 }

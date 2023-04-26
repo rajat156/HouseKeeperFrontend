@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FeedbackService} from '../../service/feedback.service';
+import {CleanRequestService} from '../../service/clean-request.service'; 
+import {ActivatedRoute} from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-complaints',
   templateUrl: './complaints.component.html',
@@ -8,14 +11,23 @@ import {FeedbackService} from '../../service/feedback.service';
 export class ComplaintsComponent implements OnInit {
 
   data:any;
-  rollnumber=190783;
-  constructor(private feedbackService:FeedbackService){
-  }
-
-  submitFeedback(data:any){
-    this.feedbackService.submitFeedback(data).subscribe((item)=>{
-      console.log(item);
+  cleanRequestData:any;
+  requestId:any;
+  constructor(private feedbackService:FeedbackService, private cleanService:CleanRequestService,private route:ActivatedRoute,private router:Router){
+    if(!localStorage.getItem('UserLoginId')){
+      this.router.navigateByUrl('/Userlogin')
+    }
+  
+    this.requestId=this.route.snapshot.paramMap.get('id');
+    this.cleanService.getRequestById(this.requestId).subscribe((data)=>{
+      this.cleanRequestData=data;
     })
+  }
+  submitFeedback(data:any){
+    this.feedbackService.submitFeedback(data,this.requestId).subscribe(()=>{
+      this.router.navigateByUrl('/user/home')
+    })  
+    console.log(data)
   }
 
   ngOnInit(): void {

@@ -2,10 +2,10 @@
 <div style="margin-left:202px;">
     <label class="text-muted ms-5 mt-3"><strong>Allot Housekeeper</strong></label>
     <br><br>
-    <form class="row g-3">
+    <form class="row g-3" #form="ngForm" (ngSubmit)="allotHouseKeeper(form.value)">
         <div class="col-md-2 ms-5">
           <label class="form-label text-muted">Request Id</label>
-          <input type="text" value="{{requestId}}" class="form-control"  readonly>
+          <input type="text" name="cleanRequestId" value="{{requestId}}" class="form-control"  readonly>
         </div>
         <div class="col-md-2 ms-5">
           <label  class="form-label text-muted">Room No</label>
@@ -17,8 +17,8 @@
           </div>
           <div class="col-7 ms-5">
             <label for="inputPassword4" class="form-label text-muted">Housekeeper</label>
-            <select class="form-control" *ngFor="let data of houseKeeper">
-              <option> {{data.name}} </option>
+            <select class="form-control" ngModel name="houseKeeperId" >
+              <option value="{{data.worker_id}}" *ngFor="let data of houseKeeper"> {{data.name}} </option>
             </select>
           </div>
           <div class="col-12 ms-5">

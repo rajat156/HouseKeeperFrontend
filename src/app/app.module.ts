@@ -15,6 +15,8 @@ import { RequestComponent } from './user/request/request.component';
 import { ComplaintsComponent } from './user/complaints/complaints.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { HttpClientModule } from  '@angular/common/http';
+import { LoginUserComponent } from './login-user/login-user.component';
+import { FeedbackComponent } from './navbar/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { HttpClientModule } from  '@angular/common/http';
     UserdashboardComponent,
     RequestComponent,
     ComplaintsComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoginUserComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,

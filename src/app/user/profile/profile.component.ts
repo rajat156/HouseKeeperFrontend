@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RegStuServiceService} from '../../service/reg-stu-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -8,8 +9,14 @@ import {RegStuServiceService} from '../../service/reg-stu-service.service';
 export class ProfileComponent implements OnInit{
 
   studentData:any;
-  constructor(private studentService:RegStuServiceService){
-  this.studentService.getStudent(983733).subscribe((item)=>{
+  rollnumber:any;
+  constructor(private studentService:RegStuServiceService,private route:Router){
+    if(!localStorage.getItem('UserLoginId')){
+      this.route.navigateByUrl('/Userlogin');
+    }
+    this.rollnumber=localStorage.getItem('UserLoginId');
+  this.studentService.getStudent(this.rollnumber).subscribe((item)=>{
+    console.log(item)
     this.studentData=item;
   });
   }

@@ -7,12 +7,14 @@ import {faRunning} from '@fortawesome/free-solid-svg-icons';
 import {faChartBar} from '@fortawesome/free-solid-svg-icons';
 import {faChartPie} from '@fortawesome/free-solid-svg-icons';
 import {CleanRequestService} from '../service/clean-request.service';
+import {FeedbackService} from '../service/feedback.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent  {
 
   AllotIcon:any=faTelegram;
   ComplaintsIcon:any=faCreditCardAlt;
@@ -22,15 +24,23 @@ export class UserComponent implements OnInit {
   CleanRequestIcon:any=faChartBar;
   ComplaintsDivIcon:any=faChartPie;
   complaintCount:any;
-  constructor(private cleanService:CleanRequestService){
-    this.cleanService.countRequest(983733).subscribe((item)=>{
+  feedbackCount:any;
+  rollnumber:any;
+  constructor(private route:Router,private cleanService:CleanRequestService,private feedbackService:FeedbackService){
+    if(!localStorage.getItem('UserLoginId')){
+      this.route.navigateByUrl('/Userlogin')
+    }
+    this.rollnumber=localStorage.getItem('UserLoginId');
+    this.cleanService.countRequest(this.rollnumber).subscribe((item)=>{
       this.complaintCount=item;
     })
+    this.feedbackService.getFeedbackCountByRollnumber(this.rollnumber).subscribe((item)=>{
+      this.feedbackCount=item;
+    })
   }
-  ngOnInit(): void {
-      localStorage.setItem('loginidpass','rajat');
-  }
+ 
   logout(){
-    localStorage.removeItem('loginidpass');
+    localStorage.removeItem('UserLoginId');
+    this.route.navigateByUrl('/Userlogin')
   }
 }

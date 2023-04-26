@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import{CleanRequestService} from '../../service/clean-request.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-request',
   templateUrl: './request.component.html',
@@ -7,12 +8,17 @@ import{CleanRequestService} from '../../service/clean-request.service';
 })
 export class RequestComponent {
 
-  constructor(private cleanService:CleanRequestService){}
+  rollnumber:any;
+  constructor(private cleanService:CleanRequestService,private route:Router){
+    if(!localStorage.getItem('UserLoginId')){
+      this.route.navigateByUrl('/Userlogin')
+    }
+    this.rollnumber=localStorage.getItem('UserLoginId');
+  }
+  
   submitRequest(data:any){
-    console.log(data);
-
-    this.cleanService.submitRequest(983733,data).subscribe((item)=>{
-      
+    this.cleanService.submitRequest(this.rollnumber,data).subscribe((item)=>{
+      this.route.navigateByUrl('/user/home')
     });
   }
 }
