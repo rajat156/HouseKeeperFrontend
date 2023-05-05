@@ -15,4 +15,7 @@ export class RegStuServiceService {
     return this.http.get('http://localhost:8087/getStudent/'+data);
   }
 
+  changePassword(data:any,rollnumber:any){
+    return this.http.put('http://localhost:8087/changePasswordOfStudent/'+rollnumber,data);
+  }
 }

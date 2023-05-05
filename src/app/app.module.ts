@@ -14,10 +14,12 @@ import { UserdashboardComponent } from './user/userdashboard/userdashboard.compo
 import { RequestComponent } from './user/request/request.component';
 import { ComplaintsComponent } from './user/complaints/complaints.component';
 import { ProfileComponent } from './user/profile/profile.component';
-import { HttpClientModule } from  '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { FeedbackComponent } from './navbar/feedback/feedback.component';
-
+import { DemoLoginComponent } from './demo-login/demo-login.component';
+import { MatSnackBarModule, matSnackBarAnimations } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,13 +35,17 @@ import { FeedbackComponent } from './navbar/feedback/feedback.component';
     ComplaintsComponent,
     ProfileComponent,
     LoginUserComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    DemoLoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

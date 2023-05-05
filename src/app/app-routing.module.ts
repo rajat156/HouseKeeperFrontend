@@ -11,27 +11,29 @@ import { UserdashboardComponent } from './user/userdashboard/userdashboard.compo
 import { RequestComponent } from './user/request/request.component';
 import { ComplaintsComponent } from './user/complaints/complaints.component';
 import { ProfileComponent } from './user/profile/profile.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { FeedbackComponent } from './navbar/feedback/feedback.component';
+import { DemoLoginComponent } from './demo-login/demo-login.component';
 
 const routes: Routes = [
-  {path:'Adminlogin',component:LoginComponent},
-  { path:'admin/home', component:DashboardComponent },
-  { path:'',redirectTo:"Adminlogin",pathMatch:"full" },
-  {path:'admin/allot/:id/:hostel',component:AllotComponent},
-  {path:'admin/registerStudent/:id', component:RegisterstudentComponent},
-  {path:'admin/registerHousekeeper/:id',component:RegisterHousekeeperComponent},
-  {path:'user/home',component:UserdashboardComponent},
-  {path:'user/request',component:RequestComponent},
-  {path:'user/complaints/:id',component:ComplaintsComponent},
-  {path:'user/profile',component:ProfileComponent},
-  {path:'Userlogin',component:LoginUserComponent},
-  {path:'admin/feedback/:id',component:FeedbackComponent}
+  { path: 'Adminlogin', component: LoginComponent },
+  { path: 'admin/home', component: DashboardComponent },
+  { path: '', redirectTo: "Adminlogin", pathMatch: "full" },
+  { path: 'admin/allot/:id/:hostel', component: AllotComponent },
+  { path: 'admin/registerStudent/:id', component: RegisterstudentComponent },
+  { path: 'admin/registerHousekeeper/:id', component: RegisterHousekeeperComponent },
+  { path: 'user/home', component: UserdashboardComponent },
+  { path: 'user/request', component: RequestComponent },
+  { path: 'user/complaints/:id', component: ComplaintsComponent },
+  { path: 'user/profile', component: ProfileComponent },
+  { path: 'Userlogin', component: LoginUserComponent },
+  { path: 'admin/feedback/:id', component: FeedbackComponent },
+  { path: 'demo_login', component: DemoLoginComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),FormsModule],
-  exports: [RouterModule,FormsModule]
+  imports: [RouterModule.forRoot(routes), FormsModule],
+  exports: [RouterModule, FormsModule]
 })
 export class AppRoutingModule { }

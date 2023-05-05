@@ -1,19 +1,19 @@
 <app-user></app-user>
 <div style="margin-left:202px;">
 
-    <label class="text-muted ms-5 mt-3"><strong>Send Clean Request</strong></label>
-    <br><br>
-    <form class="row g-3" #form="ngForm" (ngSubmit)="submitRequest(form.value)">
-        <div class="col-md-2 ms-5">
-          <label for="inputEmail4" class="form-label text-muted">Date</label>
-          <input type="date" class="form-control" ngModel id="inputEmail4" name="date">
-        </div>
-        <div class="col-md-2 ms-5">
-            <label for="inputEmai" class="form-label text-muted">Available Time</label>
-            <input type="time" class="form-control" ngModel id="inputEmai" name="cleanTime">
-          </div>
-          <div class="col-12 ms-5">
-            <button class="btn btn-primary">Submit</button>
-          </div>
-    </form>
+  <label class="text-muted ms-5 mt-3"><strong>Send Clean Request</strong></label>
+  <br><br>
+  <form class="row g-3" #form="ngForm" (ngSubmit)="submitRequest(form.value)">
+    <div class="col-md-2 ms-5">
+      <label for="inputEmail4" class="form-label text-muted">Date</label>
+      <input type="date" class="form-control" ngModel id="inputEmail4" name="date" required>
+    </div>
+    <div class="col-md-2 ms-5">
+      <label for="inputEmai" class="form-label text-muted">Available Time</label>
+      <input type="time" class="form-control" ngModel id="inputEmai" name="cleanTime" required>
+    </div>
+    <div class="col-12 ms-5">
+      <button class="btn btn-primary">Submit</button>
+    </div>
+  </form>
 </div>

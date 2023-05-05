@@ -1,27 +1,60 @@
 <app-user></app-user>
 <div style="margin-left:16%;">
-    <label class="text-muted ms-5 mt-3"><strong>Your Profile</strong></label>
-   <button style="margin-left: 500px; font-size: 10px;" class="btn btn-primary">Change Password</button>
-  
-   <br><br>
-    <table  class="table customTable">
-        <tbody>
-          <tr>
-            <td class="text-muted">Roll Number</td>
-            <td class="text-muted"> {{studentData.rollnumber}} </td>
-          </tr>
-          <tr>
-            <td class="text-muted">Hostel</td>
-            <td class="text-muted"> {{studentData.hostel}} </td>
-          </tr>
-          <tr>
-            <td class="text-muted">Floor</td>
-            <td class="text-muted"> {{studentData.floor}} </td>
-          </tr>
-          <tr>
-            <td class="text-muted">Room</td>
-            <td class="text-muted"> {{studentData.room}} </td>
-          </tr>
-        </tbody>
-      </table>
+  <label class="text-muted ms-5 mt-3"><strong>Your Profile</strong></label>
+  <button style="margin-left: 500px; font-size: 10px;" class="btn btn-primary" (click)="openPopup()">Change
+    Password</button>
+
+  <br><br>
+  <table class="table customTable">
+    <tbody>
+      <tr>
+        <td class="text-muted">Roll Number</td>
+        <td class="text-muted"> {{studentData.rollnumber}} </td>
+      </tr>
+      <tr>
+        <td class="text-muted">Hostel</td>
+        <td class="text-muted"> {{studentData.hostel}} </td>
+      </tr>
+      <tr>
+        <td class="text-muted">Floor</td>
+        <td class="text-muted"> {{studentData.floor}} </td>
+      </tr>
+      <tr>
+        <td class="text-muted">Room</td>
+        <td class="text-muted"> {{studentData.room}} </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Change Password</h4>
+          <button type="button" class="btn-close" (click)="closePopup()" data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #passwordChange="ngForm" (ngSubmit)="changePassword(passwordChange.value)">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Current Password</label>
+              <input type="text" name="currentPassword"
+                [ngStyle]="{'border-color':currentBorderColor ,'border-width':'2px'}" ngModel class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">New Password</label>
+              <input type="password" [ngStyle]="{'border-color': inputBorderColor ,'border-width':'2px'}"
+                name="newPassword" ngModel class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" [ngStyle]="{'border-color': inputBorderColor,'border-width':'2px'}"
+                name="confirmPassword" ngModel class="form-control" id="confirmPassword">
+            </div>
+            <button type="submit" class="btn btn-primary">Change</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
